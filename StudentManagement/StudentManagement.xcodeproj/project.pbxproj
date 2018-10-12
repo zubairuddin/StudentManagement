@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D1BF4FB2170381D001F655E /* ExamListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1BF4FA2170381D001F655E /* ExamListCell.swift */; };
 		F91402E1216F3C6600482489 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91402E0216F3C6600482489 /* AppDelegate.swift */; };
 		F91402E3216F3C6600482489 /* StudentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91402E2216F3C6600482489 /* StudentListViewController.swift */; };
 		F91402E6216F3C6600482489 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F91402E4216F3C6600482489 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D1BF4FA2170381D001F655E /* ExamListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamListCell.swift; sourceTree = "<group>"; };
 		F91402DD216F3C6600482489 /* StudentManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudentManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F91402E0216F3C6600482489 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F91402E2216F3C6600482489 /* StudentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentListViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +66,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D1BF4F9217037FC001F655E /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F9605C33216F3DF5007EBF91 /* StudentListCell.swift */,
+				3D1BF4FA2170381D001F655E /* ExamListCell.swift */,
+			);
+			name = "Table View Cells";
+			sourceTree = "<group>";
+		};
 		F91402D4216F3C6500482489 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +94,7 @@
 		F91402DF216F3C6600482489 /* StudentManagement */ = {
 			isa = PBXGroup;
 			children = (
+				3D1BF4F9217037FC001F655E /* Table View Cells */,
 				F9B21A63216F7CCE00458C02 /* Third Party */,
 				F9B21A5D216F700B00458C02 /* DatabaseManager */,
 				F9B21A58216F692C00458C02 /* Core Data Classes */,
@@ -92,7 +104,6 @@
 				F9B21A51216F508E00458C02 /* StudentDetailViewController.swift */,
 				F9B21A53216F50C100458C02 /* ExamListViewController.swift */,
 				F9B21A55216F50CD00458C02 /* AddExamViewController.swift */,
-				F9605C33216F3DF5007EBF91 /* StudentListCell.swift */,
 				F91402E4216F3C6600482489 /* Main.storyboard */,
 				F91402EA216F3C6800482489 /* Assets.xcassets */,
 				F91402EC216F3C6800482489 /* LaunchScreen.storyboard */,
@@ -225,6 +236,7 @@
 				F9B21A54216F50C100458C02 /* ExamListViewController.swift in Sources */,
 				F9B21A5F216F701A00458C02 /* DatabaseManager.swift in Sources */,
 				F9B21A6B216F7CEF00458C02 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
+				3D1BF4FB2170381D001F655E /* ExamListCell.swift in Sources */,
 				F9B21A56216F50CD00458C02 /* AddExamViewController.swift in Sources */,
 				F91402E9216F3C6600482489 /* StudentManagement.xcdatamodeld in Sources */,
 				F9B21A50216F506F00458C02 /* AddStudentViewController.swift in Sources */,

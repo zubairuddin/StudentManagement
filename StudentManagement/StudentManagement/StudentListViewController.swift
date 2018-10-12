@@ -15,11 +15,25 @@ class StudentListViewController: UIViewController {
     
     //MARK: Outlets
     @IBOutlet weak var tblStudents: UITableView!
+    @IBOutlet weak var lblNoStudents: UILabel!
     
     //MARK: View Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        arrStudents = DatabaseManager.getAllStudents()
+        
+        if arrStudents.count > 0 {
+            tblStudents.isHidden = false
+            lblNoStudents.isHidden = true
+            tblStudents.reloadData()
+        }
+        else {
+            tblStudents.isHidden = true
+            lblNoStudents.isHidden = false
+        }
     }
     
     //MARK: Actions
@@ -48,6 +62,13 @@ extension StudentListViewController: UITableViewDataSource {
 
 extension StudentListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //TODO: Show student detail view and allow the option to modify student detail and delete student there
+        
+        //Get the selected student
+        let selectedStudent = arrStudents[indexPath.row]
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "StudentDetailViewController") as! StudentDetailViewController
+        vc.selectedStudent = selectedStudent
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

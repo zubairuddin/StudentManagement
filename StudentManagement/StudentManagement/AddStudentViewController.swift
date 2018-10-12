@@ -19,10 +19,11 @@ class AddStudentViewController: UIViewController {
     @IBOutlet weak var segmentGender: UISegmentedControl!
     @IBOutlet weak var stepperAge: UIStepper!
     @IBOutlet weak var lblAge: UILabel!
+    @IBOutlet weak var btnSave: UIButton!
     
     //Instance variables
-    var gender: String?
-    var age: Int64 = 18
+    var gender = "Male"
+    var age: Int64!
     
     //Validation Enum
     enum ValidateData {
@@ -33,9 +34,11 @@ class AddStudentViewController: UIViewController {
     //MARK: View Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         
+        title = "Add Student"
+        age = Int64(stepperAge.value)
+        formatControls()
     }
     
     //MARK: Actions
@@ -45,11 +48,12 @@ class AddStudentViewController: UIViewController {
         switch validationStage {
         case .valid:
             //Save user Info
-            DatabaseManager.saveStudent(studentId: txtStudentId.text!, firstName: txtFirstName.text!, lastName: txtLastName.text!, gender: gender!, age: age, courseStudy: txtCourse.text!, address: txtAddress.text!)
+            DatabaseManager.saveStudent(studentId: txtStudentId.text!, firstName: txtFirstName.text!, lastName: txtLastName.text!, gender: gender, age: age, courseStudy: txtCourse.text!, address: txtAddress.text!)
             
         case .invalid(let errorMessage):
             presentAlert(withTitle: errorMessage, message: "")
         }
+        
     }
         
     @IBAction func genderSelected(_ sender: UISegmentedControl) {
@@ -57,6 +61,8 @@ class AddStudentViewController: UIViewController {
     }
     
     @IBAction func ageChanged(_ sender: UIStepper) {
+        age =  Int64(sender.value)
+        lblAge.text = "Age: \(age!)"
     }
     
     //MARK: Custom Methods
@@ -76,13 +82,14 @@ class AddStudentViewController: UIViewController {
         else if (txtAddress.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)! {
             return .invalid("Please enter address.")
         }
-        else if gender == nil {
-            return .invalid("Please select gender.")
-        }
+            
         else {
             return .valid
         }
         
     }
-    
+    func formatControls() {
+        btnSave.layer.cornerRadius = btnSave.frame.height / 2
+        btnSave.layer.masksToBounds = true
+    }
 }
