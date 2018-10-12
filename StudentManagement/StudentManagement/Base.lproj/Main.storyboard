@@ -36,7 +36,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIk-4p-rDm">
-                                                    <rect key="frame" x="10" y="10.000000000000002" width="300" height="23.666666666666671"/>
+                                                    <rect key="frame" x="10" y="10.000000000000002" width="355" height="23.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -536,19 +536,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Exam Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97f-uy-3kj">
-                                                    <rect key="frame" x="10" y="10" width="300" height="20.5"/>
+                                                    <rect key="frame" x="10" y="10" width="355" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Date and Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXV-A5-Jjh">
-                                                    <rect key="frame" x="10" y="38.5" width="300" height="17"/>
+                                                    <rect key="frame" x="10" y="38.5" width="355" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ckh-SV-l1W">
-                                                    <rect key="frame" x="10" y="64.5" width="300" height="17"/>
+                                                    <rect key="frame" x="10" y="64.5" width="355" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -574,6 +574,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="HM8-aG-OkN" id="tkb-Sk-FYv"/>
+                                    <outlet property="delegate" destination="HM8-aG-OkN" id="aUI-7i-SCW"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -657,7 +661,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e28-o5-ava">
-                                <rect key="frame" x="0.0" y="778" width="375" height="210"/>
+                                <rect key="frame" x="0.0" y="812" width="375" height="210"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EN3-EZ-H2u">
                                         <rect key="frame" x="8" y="8" width="48" height="30"/>
@@ -699,7 +703,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ayi-yy-h7b" firstAttribute="bottom" secondItem="e28-o5-ava" secondAttribute="bottom" constant="-210" id="4gs-hb-sxs"/>
+                            <constraint firstItem="ayi-yy-h7b" firstAttribute="bottom" secondItem="e28-o5-ava" secondAttribute="bottom" constant="-244" id="4gs-hb-sxs"/>
                             <constraint firstItem="H1d-wF-KFc" firstAttribute="top" secondItem="rf7-HN-Fjc" secondAttribute="bottom" constant="30" id="7Ct-v9-g1g"/>
                             <constraint firstItem="ayi-yy-h7b" firstAttribute="trailing" secondItem="ddK-Kt-48e" secondAttribute="trailing" constant="20" id="8nD-c2-BQd"/>
                             <constraint firstItem="j7K-wB-eIS" firstAttribute="leading" secondItem="ayi-yy-h7b" secondAttribute="leading" constant="20" id="Bcw-Ua-nVb"/>

@@ -21,6 +21,7 @@ class StudentListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        tblStudents.allowsMultipleSelectionDuringEditing = true
     }
     override func viewWillAppear(_ animated: Bool) {
         arrStudents = DatabaseManager.getAllStudents()
