@@ -10,5 +10,5 @@ import UIKit
 
 class StudentListCell: UITableViewCell {
     @IBOutlet weak var lblStudentName: UILabel!
-    
+    @IBOutlet weak var imgStudentImage: UIImageView!
 }

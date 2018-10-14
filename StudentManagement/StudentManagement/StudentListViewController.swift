@@ -21,7 +21,14 @@ class StudentListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        tblStudents.allowsMultipleSelectionDuringEditing = true
+        //tblStudents.allowsMultipleSelectionDuringEditing = true
+        
+        //Add bar buttons
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewStudent))
+        
+        let assignExamButton = UIBarButtonItem(image: UIImage(named: "exam"), style: .plain, target: self, action: #selector(assignExamToStudent))
+        
+        navigationItem.rightBarButtonItems = [addButton, assignExamButton]
     }
     override func viewWillAppear(_ animated: Bool) {
         arrStudents = DatabaseManager.getAllStudents()
@@ -37,13 +44,18 @@ class StudentListViewController: UIViewController {
         }
     }
     
-    //MARK: Actions
-    @IBAction func addStudentTapped(_ sender: UIBarButtonItem) {
+    //MARK: Custom Methods
+    @objc func addNewStudent() {
         let vc = storyboard?.instantiateViewController(withIdentifier: "AddStudentViewController") as! AddStudentViewController
+        navigationController?.pushViewController(vc, animated: true)
+
+    }
+    
+    @objc func assignExamToStudent() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "AssignExamToStudentViewController") as! AssignExamToStudentViewController
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    //MARK: Custom Methods
 }
 
 extension StudentListViewController: UITableViewDataSource {
@@ -57,6 +69,17 @@ extension StudentListViewController: UITableViewDataSource {
 
         cell.lblStudentName.text = student.firstName + " " + student.lastName
         
+        if let imgData = student.image, let image = UIImage(data: imgData) {
+            cell.imgStudentImage.image = image
+        }
+
+        
+        print("Height = \(cell.imgStudentImage.frame.height)")
+        print("Width = \(cell.imgStudentImage.frame.width)")
+        
+        //cell.imgStudentImage.layer.cornerRadius = 20
+        //cell.imgStudentImage.layer.masksToBounds = true
+        
         return cell
     }
 }
@@ -67,8 +90,12 @@ extension StudentListViewController: UITableViewDelegate {
         //Get the selected student
         let selectedStudent = arrStudents[indexPath.row]
         
-        let vc = storyboard?.instantiateViewController(withIdentifier: "StudentDetailViewController") as! StudentDetailViewController
+//        let vc = storyboard?.instantiateViewController(withIdentifier: "StudentDetailViewController") as! StudentDetailViewController
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "AddStudentViewController") as! AddStudentViewController
+
         vc.selectedStudent = selectedStudent
+        vc.isEditingStudent = true
         
         navigationController?.pushViewController(vc, animated: true)
     }

@@ -7,7 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D1353682171791D006FAB9B /* Exams+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1353662171791D006FAB9B /* Exams+CoreDataClass.swift */; };
+		3D1353692171791D006FAB9B /* Exams+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1353672171791D006FAB9B /* Exams+CoreDataProperties.swift */; };
+		3D13536C21717D58006FAB9B /* ExamDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13536B21717D58006FAB9B /* ExamDetailViewController.swift */; };
+		3D13536E2171F557006FAB9B /* StudentExamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13536D2171F557006FAB9B /* StudentExamsViewController.swift */; };
+		3D1353702171F8E2006FAB9B /* StudentExamsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13536F2171F8E2006FAB9B /* StudentExamsCell.swift */; };
+		3D135372217209FD006FAB9B /* AssignExamToStudentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D135371217209FD006FAB9B /* AssignExamToStudentViewController.swift */; };
+		3D1945592173438E00B6CF48 /* AddressOnMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1945582173438E00B6CF48 /* AddressOnMapViewController.swift */; };
+		3D1B4B6D2171103800031ED8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1B4B6C2171103800031ED8 /* HomeViewController.swift */; };
 		3D1BF4FB2170381D001F655E /* ExamListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1BF4FA2170381D001F655E /* ExamListCell.swift */; };
+		3D9027BF2172684D006549AA /* AddImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9027BE2172684D006549AA /* AddImagesViewController.swift */; };
 		F91402E1216F3C6600482489 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91402E0216F3C6600482489 /* AppDelegate.swift */; };
 		F91402E3216F3C6600482489 /* StudentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91402E2216F3C6600482489 /* StudentListViewController.swift */; };
 		F91402E6216F3C6600482489 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F91402E4216F3C6600482489 /* Main.storyboard */; };
@@ -29,7 +38,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D1353662171791D006FAB9B /* Exams+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Exams+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3D1353672171791D006FAB9B /* Exams+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Exams+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3D13536B21717D58006FAB9B /* ExamDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamDetailViewController.swift; sourceTree = "<group>"; };
+		3D13536D2171F557006FAB9B /* StudentExamsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentExamsViewController.swift; sourceTree = "<group>"; };
+		3D13536F2171F8E2006FAB9B /* StudentExamsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentExamsCell.swift; sourceTree = "<group>"; };
+		3D135371217209FD006FAB9B /* AssignExamToStudentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignExamToStudentViewController.swift; sourceTree = "<group>"; };
+		3D1945582173438E00B6CF48 /* AddressOnMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressOnMapViewController.swift; sourceTree = "<group>"; };
+		3D1B4B6C2171103800031ED8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3D1BF4FA2170381D001F655E /* ExamListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamListCell.swift; sourceTree = "<group>"; };
+		3D9027BE2172684D006549AA /* AddImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImagesViewController.swift; sourceTree = "<group>"; };
 		F91402DD216F3C6600482489 /* StudentManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudentManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F91402E0216F3C6600482489 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F91402E2216F3C6600482489 /* StudentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentListViewController.swift; sourceTree = "<group>"; };
@@ -66,11 +84,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D13536A21717D37006FAB9B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F91402E2216F3C6600482489 /* StudentListViewController.swift */,
+				F9B21A4F216F506F00458C02 /* AddStudentViewController.swift */,
+				F9B21A51216F508E00458C02 /* StudentDetailViewController.swift */,
+				F9B21A53216F50C100458C02 /* ExamListViewController.swift */,
+				F9B21A55216F50CD00458C02 /* AddExamViewController.swift */,
+				3D1B4B6C2171103800031ED8 /* HomeViewController.swift */,
+				3D13536B21717D58006FAB9B /* ExamDetailViewController.swift */,
+				3D13536D2171F557006FAB9B /* StudentExamsViewController.swift */,
+				3D135371217209FD006FAB9B /* AssignExamToStudentViewController.swift */,
+				3D9027BE2172684D006549AA /* AddImagesViewController.swift */,
+				3D1945582173438E00B6CF48 /* AddressOnMapViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		3D1BF4F9217037FC001F655E /* Table View Cells */ = {
 			isa = PBXGroup;
 			children = (
 				F9605C33216F3DF5007EBF91 /* StudentListCell.swift */,
 				3D1BF4FA2170381D001F655E /* ExamListCell.swift */,
+				3D13536F2171F8E2006FAB9B /* StudentExamsCell.swift */,
 			);
 			name = "Table View Cells";
 			sourceTree = "<group>";
@@ -94,16 +131,12 @@
 		F91402DF216F3C6600482489 /* StudentManagement */ = {
 			isa = PBXGroup;
 			children = (
+				3D13536A21717D37006FAB9B /* Controllers */,
 				3D1BF4F9217037FC001F655E /* Table View Cells */,
 				F9B21A63216F7CCE00458C02 /* Third Party */,
 				F9B21A5D216F700B00458C02 /* DatabaseManager */,
 				F9B21A58216F692C00458C02 /* Core Data Classes */,
 				F9B21A57216F50E500458C02 /* App Delegate */,
-				F91402E2216F3C6600482489 /* StudentListViewController.swift */,
-				F9B21A4F216F506F00458C02 /* AddStudentViewController.swift */,
-				F9B21A51216F508E00458C02 /* StudentDetailViewController.swift */,
-				F9B21A53216F50C100458C02 /* ExamListViewController.swift */,
-				F9B21A55216F50CD00458C02 /* AddExamViewController.swift */,
 				F91402E4216F3C6600482489 /* Main.storyboard */,
 				F91402EA216F3C6800482489 /* Assets.xcassets */,
 				F91402EC216F3C6800482489 /* LaunchScreen.storyboard */,
@@ -127,6 +160,8 @@
 		F9B21A58216F692C00458C02 /* Core Data Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3D1353662171791D006FAB9B /* Exams+CoreDataClass.swift */,
+				3D1353672171791D006FAB9B /* Exams+CoreDataProperties.swift */,
 				F9B21A59216F694C00458C02 /* Student+CoreDataClass.swift */,
 				F9B21A5A216F694C00458C02 /* Student+CoreDataProperties.swift */,
 			);
@@ -235,17 +270,26 @@
 				F9B21A6A216F7CEF00458C02 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				F9B21A54216F50C100458C02 /* ExamListViewController.swift in Sources */,
 				F9B21A5F216F701A00458C02 /* DatabaseManager.swift in Sources */,
+				3D1B4B6D2171103800031ED8 /* HomeViewController.swift in Sources */,
 				F9B21A6B216F7CEF00458C02 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				3D1BF4FB2170381D001F655E /* ExamListCell.swift in Sources */,
 				F9B21A56216F50CD00458C02 /* AddExamViewController.swift in Sources */,
 				F91402E9216F3C6600482489 /* StudentManagement.xcdatamodeld in Sources */,
+				3D1353702171F8E2006FAB9B /* StudentExamsCell.swift in Sources */,
+				3D13536E2171F557006FAB9B /* StudentExamsViewController.swift in Sources */,
 				F9B21A50216F506F00458C02 /* AddStudentViewController.swift in Sources */,
 				F9B21A5C216F694C00458C02 /* Student+CoreDataProperties.swift in Sources */,
+				3D135372217209FD006FAB9B /* AssignExamToStudentViewController.swift in Sources */,
+				3D1353682171791D006FAB9B /* Exams+CoreDataClass.swift in Sources */,
+				3D9027BF2172684D006549AA /* AddImagesViewController.swift in Sources */,
 				F91402E3216F3C6600482489 /* StudentListViewController.swift in Sources */,
+				3D1945592173438E00B6CF48 /* AddressOnMapViewController.swift in Sources */,
 				F91402E1216F3C6600482489 /* AppDelegate.swift in Sources */,
 				F91FC232216F837700BD06F3 /* Extensions.swift in Sources */,
+				3D13536C21717D58006FAB9B /* ExamDetailViewController.swift in Sources */,
 				F9605C34216F3DF5007EBF91 /* StudentListCell.swift in Sources */,
 				F9B21A5B216F694C00458C02 /* Student+CoreDataClass.swift in Sources */,
+				3D1353692171791D006FAB9B /* Exams+CoreDataProperties.swift in Sources */,
 				F9B21A52216F508E00458C02 /* StudentDetailViewController.swift in Sources */,
 				F9B21A61216F70AA00458C02 /* Constants.swift in Sources */,
 			);
@@ -395,6 +439,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 39DDS7649B;
 				INFOPLIST_FILE = StudentManagement/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -416,6 +461,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 39DDS7649B;
 				INFOPLIST_FILE = StudentManagement/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

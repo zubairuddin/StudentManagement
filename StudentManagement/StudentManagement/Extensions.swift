@@ -16,3 +16,21 @@ extension UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
 }
+
+extension Date {
+    func toString() -> String? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yyyy hh:mm:a"
+        formatter.amSymbol = "AM"
+        formatter.pmSymbol = "PM"
+        return formatter.string(from: self)
+    }
+    
+    func isInPast() -> Bool {
+        if self.timeIntervalSinceNow < 0.0 {
+            return true
+        }
+        
+        return false
+    }
+}

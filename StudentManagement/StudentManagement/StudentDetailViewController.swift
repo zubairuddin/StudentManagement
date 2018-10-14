@@ -41,9 +41,14 @@ class StudentDetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        //Add notification observers
+        NotificationCenter.default.addObserver(self, selector: #selector(updateStudentSuccess), name: Notification.Name("UpdateStudentSuccess"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateStudentFailed), name: Notification.Name("UpdateStudentFailed"), object: nil)
+
         setUpView()
         formatControls()
     }
+        
     func setUpView() {
         
         //Set up the delete student button
@@ -58,7 +63,7 @@ class StudentDetailViewController: UIViewController {
         txtFirstName.text = selectedStudent.firstName
         txtLastName.text = selectedStudent.lastName
         txtCourse.text = selectedStudent.courseStudy
-        txtAddress.text = selectedStudent.address
+        //txtAddress.text = selectedStudent.address
         
         age = selectedStudent.age
         gender = selectedStudent.gender
@@ -76,14 +81,21 @@ class StudentDetailViewController: UIViewController {
 
     }
     
+    @objc func updateStudentSuccess(){
+        navigationController?.popViewController(animated: true)
+    }
+    @objc func updateStudentFailed() {
+        self.presentAlert(withTitle: "Unable to update student in core data.", message: "An error occured.")
+    }
+
     //MARK: Actions
     @IBAction func updateStudentAction(_ sender: UIButton) {
         let validationStage = validateDetails()
         
         switch validationStage {
         case .valid:
+            print("Valid.")
             //Update user Info
-            DatabaseManager.updateStudent(withStudentId: selectedStudent.studentId, firstName: txtFirstName.text!, lastName: txtLastName.text!, gender: gender, age: age, courseStudy: txtCourse.text!, address: txtAddress.text!)
         case .invalid(let errorMessage):
             presentAlert(withTitle: errorMessage, message: "")
         }

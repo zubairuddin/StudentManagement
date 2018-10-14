@@ -13,4 +13,6 @@ class ExamListCell: UITableViewCell {
     @IBOutlet weak var lblExamName: UILabel!
     @IBOutlet weak var lblDateAndTime: UILabel!
     @IBOutlet weak var lblLocation: UILabel!
+    @IBOutlet weak var btnCheckUncheck: UIButton!
+    @IBOutlet weak var lblUpcomingOrPast: UILabel!
 }
