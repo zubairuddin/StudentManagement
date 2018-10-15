@@ -1187,7 +1187,7 @@
                                             <action selector="doneTimeSelection:" destination="cwU-NL-aVC" eventType="touchUpInside" id="WCB-Ye-2zw"/>
                                         </connections>
                                     </button>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="dDt-di-b3e">
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="dDt-di-b3e">
                                         <rect key="frame" x="0.0" y="46" width="375" height="164"/>
                                         <date key="date" timeIntervalSinceReferenceDate="561003473.30072999">
                                             <!--2018-10-12 02:17:53 +0000-->
@@ -1621,12 +1621,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="check" width="50" height="50"/>
-        <image name="examsHome" width="150" height="150"/>
-        <image name="imagesHome" width="150" height="150"/>
-        <image name="pin" width="100" height="100"/>
-        <image name="placeholder" width="170" height="170"/>
-        <image name="studentsHome" width="150" height="150"/>
-        <image name="uncheck" width="50" height="50"/>
+        <image name="check" width="120" height="120"/>
+        <image name="examsHome" width="360" height="360"/>
+        <image name="imagesHome" width="360" height="360"/>
+        <image name="pin" width="24.379232406616211" height="24.379232406616211"/>
+        <image name="placeholder" width="42.421173095703125" height="42.421173095703125"/>
+        <image name="studentsHome" width="360" height="360"/>
+        <image name="uncheck" width="120" height="120"/>
     </resources>
 </document>
