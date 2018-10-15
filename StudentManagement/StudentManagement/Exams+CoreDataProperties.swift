@@ -2,7 +2,7 @@
 //  Exams+CoreDataProperties.swift
 //  StudentManagement
 //
-//  Created by Zubair on 13/10/18.
+//  Created by Zubair on 15/10/18.
 //  Copyright © 2018 joseph. All rights reserved.
 //
 //
@@ -17,10 +17,11 @@ extension Exams {
         return NSFetchRequest<Exams>(entityName: "Exams")
     }
 
-    @NSManaged public var examName: String
-    @NSManaged public var examDateTime: Date
     @NSManaged public var examLocation: String
+    @NSManaged public var examName: String
     @NSManaged public var isSelectedForDelete: Bool
+    @NSManaged public var examDate: Date
+    @NSManaged public var examTime: Date
     @NSManaged public var students: NSSet?
 
 }

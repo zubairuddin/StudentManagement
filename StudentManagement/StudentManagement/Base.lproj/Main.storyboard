@@ -1078,13 +1078,13 @@
                                     <outlet property="delegate" destination="cwU-NL-aVC" id="Q1G-Ei-Y5u"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date and Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rf7-HN-Fjc">
-                                <rect key="frame" x="20" y="122" width="104" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exam Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rf7-HN-Fjc">
+                                <rect key="frame" x="20" y="122" width="74" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date and Time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Xv-TV-3hZ">
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Exam Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Xv-TV-3hZ">
                                 <rect key="frame" x="141" y="116" width="214" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1101,13 +1101,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1d-wF-KFc">
-                                <rect key="frame" x="20" y="170" width="59" height="18"/>
+                                <rect key="frame" x="20" y="218" width="59" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xi7-C4-MdM">
-                                <rect key="frame" x="141" y="164" width="214" height="30"/>
+                                <rect key="frame" x="141" y="212" width="214" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -1116,7 +1116,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j7K-wB-eIS">
-                                <rect key="frame" x="20" y="238" width="335" height="50"/>
+                                <rect key="frame" x="20" y="286" width="335" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Hza-AS-0hP"/>
@@ -1147,7 +1147,7 @@
                                             <action selector="doneDateSelection:" destination="cwU-NL-aVC" eventType="touchUpInside" id="jWN-ST-1RW"/>
                                         </connections>
                                     </button>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="UZh-hB-sX5">
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="UZh-hB-sX5">
                                         <rect key="frame" x="0.0" y="46" width="375" height="164"/>
                                         <date key="date" timeIntervalSinceReferenceDate="561003473.30072999">
                                             <!--2018-10-12 02:17:53 +0000-->
@@ -1170,12 +1170,71 @@
                                     <constraint firstAttribute="trailing" secondItem="kaJ-G1-NvP" secondAttribute="trailing" constant="8" id="zi7-6e-hAx"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iCZ-32-0lC">
+                                <rect key="frame" x="0.0" y="812" width="375" height="210"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="led-83-dzI">
+                                        <rect key="frame" x="8" y="8" width="48" height="30"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelTimeSelection:" destination="cwU-NL-aVC" eventType="touchUpInside" id="XRO-Tx-MU1"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isd-JH-1zY">
+                                        <rect key="frame" x="330" y="8" width="37" height="30"/>
+                                        <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="doneTimeSelection:" destination="cwU-NL-aVC" eventType="touchUpInside" id="WCB-Ye-2zw"/>
+                                        </connections>
+                                    </button>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="dDt-di-b3e">
+                                        <rect key="frame" x="0.0" y="46" width="375" height="164"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="561003473.30072999">
+                                            <!--2018-10-12 02:17:53 +0000-->
+                                        </date>
+                                        <connections>
+                                            <action selector="timeSelected:" destination="cwU-NL-aVC" eventType="valueChanged" id="I5f-ZX-BFj"/>
+                                        </connections>
+                                    </datePicker>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="dDt-di-b3e" secondAttribute="trailing" id="6rc-ZP-bZh"/>
+                                    <constraint firstItem="dDt-di-b3e" firstAttribute="top" secondItem="isd-JH-1zY" secondAttribute="bottom" constant="8" id="G4N-GA-nBs"/>
+                                    <constraint firstItem="isd-JH-1zY" firstAttribute="top" secondItem="iCZ-32-0lC" secondAttribute="top" constant="8" id="Lrz-I5-jNP"/>
+                                    <constraint firstAttribute="height" constant="210" id="Rf8-a6-aFB"/>
+                                    <constraint firstAttribute="bottom" secondItem="dDt-di-b3e" secondAttribute="bottom" id="RxU-jk-kS4"/>
+                                    <constraint firstAttribute="trailing" secondItem="isd-JH-1zY" secondAttribute="trailing" constant="8" id="XhP-gM-0dc"/>
+                                    <constraint firstItem="dDt-di-b3e" firstAttribute="leading" secondItem="iCZ-32-0lC" secondAttribute="leading" id="mBV-K7-gBH"/>
+                                    <constraint firstItem="led-83-dzI" firstAttribute="top" secondItem="iCZ-32-0lC" secondAttribute="top" constant="8" id="nUS-EW-vy3"/>
+                                    <constraint firstItem="led-83-dzI" firstAttribute="leading" secondItem="iCZ-32-0lC" secondAttribute="leading" constant="8" id="psa-fG-k1u"/>
+                                    <constraint firstItem="dDt-di-b3e" firstAttribute="top" secondItem="led-83-dzI" secondAttribute="bottom" constant="8" id="zrg-Jq-pal"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exam Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t6N-dl-oEH">
+                                <rect key="frame" x="20" y="170" width="75" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Exam Time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wUV-g5-6lr">
+                                <rect key="frame" x="141" y="164" width="214" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z0j-Pv-sOs">
+                                <rect key="frame" x="141" y="164" width="214" height="30"/>
+                                <connections>
+                                    <action selector="selectTimeAction:" destination="cwU-NL-aVC" eventType="touchUpInside" id="j4a-na-l9x"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="t6N-dl-oEH" firstAttribute="leading" secondItem="rf7-HN-Fjc" secondAttribute="leading" id="2Wp-In-mCX"/>
                             <constraint firstItem="ayi-yy-h7b" firstAttribute="bottom" secondItem="e28-o5-ava" secondAttribute="bottom" constant="-244" id="4gs-hb-sxs"/>
-                            <constraint firstItem="H1d-wF-KFc" firstAttribute="top" secondItem="rf7-HN-Fjc" secondAttribute="bottom" constant="30" id="7Ct-v9-g1g"/>
                             <constraint firstItem="ayi-yy-h7b" firstAttribute="trailing" secondItem="ddK-Kt-48e" secondAttribute="trailing" constant="20" id="8nD-c2-BQd"/>
+                            <constraint firstItem="wUV-g5-6lr" firstAttribute="leading" secondItem="HKx-LD-V7W" secondAttribute="leading" id="Af1-qU-oLx"/>
                             <constraint firstItem="j7K-wB-eIS" firstAttribute="leading" secondItem="ayi-yy-h7b" secondAttribute="leading" constant="20" id="Bcw-Ua-nVb"/>
                             <constraint firstItem="Xi7-C4-MdM" firstAttribute="centerY" secondItem="H1d-wF-KFc" secondAttribute="centerY" id="Gdd-5v-hrW"/>
                             <constraint firstItem="H1d-wF-KFc" firstAttribute="leading" secondItem="rf7-HN-Fjc" secondAttribute="leading" id="HNI-Sv-6nd"/>
@@ -1183,17 +1242,29 @@
                             <constraint firstItem="e28-o5-ava" firstAttribute="trailing" secondItem="ayi-yy-h7b" secondAttribute="trailing" id="LJB-ex-sDg"/>
                             <constraint firstItem="rf7-HN-Fjc" firstAttribute="leading" secondItem="GtY-ew-NlX" secondAttribute="leading" id="LKg-V7-Ou9"/>
                             <constraint firstItem="rf7-HN-Fjc" firstAttribute="top" secondItem="GtY-ew-NlX" secondAttribute="bottom" constant="30" id="OZH-7j-eiu"/>
+                            <constraint firstItem="Z0j-Pv-sOs" firstAttribute="top" secondItem="wUV-g5-6lr" secondAttribute="top" id="P3q-zn-EFz"/>
+                            <constraint firstItem="Z0j-Pv-sOs" firstAttribute="trailing" secondItem="wUV-g5-6lr" secondAttribute="trailing" id="Q0f-lz-Gfy"/>
+                            <constraint firstItem="wUV-g5-6lr" firstAttribute="centerY" secondItem="t6N-dl-oEH" secondAttribute="centerY" id="QSP-rv-X5l"/>
+                            <constraint firstItem="Z0j-Pv-sOs" firstAttribute="leading" secondItem="wUV-g5-6lr" secondAttribute="leading" id="QqU-1M-ThC"/>
                             <constraint firstItem="HKx-LD-V7W" firstAttribute="top" secondItem="5Xv-TV-3hZ" secondAttribute="top" id="Sc0-Nq-CZo"/>
                             <constraint firstItem="GtY-ew-NlX" firstAttribute="top" secondItem="ayi-yy-h7b" secondAttribute="top" constant="30" id="Tae-zZ-Tiu"/>
                             <constraint firstItem="j7K-wB-eIS" firstAttribute="top" secondItem="H1d-wF-KFc" secondAttribute="bottom" constant="50" id="VgP-NN-5Gs"/>
+                            <constraint firstItem="H1d-wF-KFc" firstAttribute="leading" secondItem="t6N-dl-oEH" secondAttribute="leading" id="WBb-Uk-NYu"/>
                             <constraint firstItem="HKx-LD-V7W" firstAttribute="trailing" secondItem="5Xv-TV-3hZ" secondAttribute="trailing" id="X1r-K2-as6"/>
                             <constraint firstItem="5Xv-TV-3hZ" firstAttribute="leading" secondItem="ddK-Kt-48e" secondAttribute="leading" id="XOO-Ea-MSh"/>
                             <constraint firstItem="Xi7-C4-MdM" firstAttribute="trailing" secondItem="5Xv-TV-3hZ" secondAttribute="trailing" id="Xfx-x4-Pc1"/>
                             <constraint firstItem="ddK-Kt-48e" firstAttribute="leading" secondItem="GtY-ew-NlX" secondAttribute="trailing" constant="35" id="YZd-h3-pOH"/>
+                            <constraint firstItem="iCZ-32-0lC" firstAttribute="leading" secondItem="ayi-yy-h7b" secondAttribute="leading" id="Z10-Be-Ljo"/>
                             <constraint firstItem="e28-o5-ava" firstAttribute="leading" secondItem="ayi-yy-h7b" secondAttribute="leading" id="cSj-ta-eug"/>
                             <constraint firstItem="HKx-LD-V7W" firstAttribute="leading" secondItem="5Xv-TV-3hZ" secondAttribute="leading" id="dhy-RZ-UdR"/>
                             <constraint firstItem="ayi-yy-h7b" firstAttribute="trailing" secondItem="j7K-wB-eIS" secondAttribute="trailing" constant="20" id="ene-ML-Gku"/>
+                            <constraint firstItem="wUV-g5-6lr" firstAttribute="trailing" secondItem="HKx-LD-V7W" secondAttribute="trailing" id="foU-lI-AFn"/>
+                            <constraint firstItem="H1d-wF-KFc" firstAttribute="top" secondItem="t6N-dl-oEH" secondAttribute="bottom" constant="30" id="g0K-V2-57s"/>
+                            <constraint firstItem="Z0j-Pv-sOs" firstAttribute="bottom" secondItem="wUV-g5-6lr" secondAttribute="bottom" id="gD4-XF-MHX"/>
+                            <constraint firstItem="iCZ-32-0lC" firstAttribute="trailing" secondItem="ayi-yy-h7b" secondAttribute="trailing" id="hHJ-zO-tMe"/>
+                            <constraint firstItem="ayi-yy-h7b" firstAttribute="bottom" secondItem="iCZ-32-0lC" secondAttribute="bottom" constant="-244" id="i60-nn-bfU"/>
                             <constraint firstItem="5Xv-TV-3hZ" firstAttribute="trailing" secondItem="ddK-Kt-48e" secondAttribute="trailing" id="olU-gv-4yz"/>
+                            <constraint firstItem="t6N-dl-oEH" firstAttribute="top" secondItem="rf7-HN-Fjc" secondAttribute="bottom" constant="30" id="r8U-kT-o3G"/>
                             <constraint firstItem="ddK-Kt-48e" firstAttribute="centerY" secondItem="GtY-ew-NlX" secondAttribute="centerY" id="sXV-Dp-RG7"/>
                             <constraint firstItem="HKx-LD-V7W" firstAttribute="bottom" secondItem="5Xv-TV-3hZ" secondAttribute="bottom" id="tPw-bz-D1O"/>
                             <constraint firstItem="5Xv-TV-3hZ" firstAttribute="centerY" secondItem="rf7-HN-Fjc" secondAttribute="centerY" id="vLf-ud-3NZ"/>
@@ -1204,16 +1275,20 @@
                     <connections>
                         <outlet property="btnSave" destination="j7K-wB-eIS" id="6JO-Z5-TYF"/>
                         <outlet property="pickerExamDate" destination="UZh-hB-sX5" id="i8b-3H-Ehk"/>
-                        <outlet property="txtDateTime" destination="5Xv-TV-3hZ" id="RSg-Zg-Q9O"/>
+                        <outlet property="pickerExamTime" destination="dDt-di-b3e" id="WeA-pt-Qy4"/>
+                        <outlet property="txtExamDate" destination="5Xv-TV-3hZ" id="RSg-Zg-Q9O"/>
                         <outlet property="txtExamName" destination="ddK-Kt-48e" id="eSY-6D-VvE"/>
+                        <outlet property="txtExamTime" destination="wUV-g5-6lr" id="51v-Si-ZM8"/>
                         <outlet property="txtLocation" destination="Xi7-C4-MdM" id="eCc-96-YYK"/>
                         <outlet property="viewExamDatePicker" destination="e28-o5-ava" id="toG-Vd-SxQ"/>
+                        <outlet property="viewExamTimePicker" destination="iCZ-32-0lC" id="y07-PD-vCd"/>
+                        <outlet property="viewExamTimePickerBottomConstraint" destination="i60-nn-bfU" id="2RS-kL-h9H"/>
                         <outlet property="viewPickerBottomConstraint" destination="4gs-hb-sxs" id="7Nx-Dv-FAr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jt0-Pl-959" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1641" y="706"/>
+            <point key="canvasLocation" x="1640.8" y="705.66502463054189"/>
         </scene>
         <!--Assign Exam To Student View Controller-->
         <scene sceneID="bdD-Dc-X8I">

@@ -18,9 +18,16 @@ extension UIViewController {
 }
 
 extension Date {
-    func toString() -> String? {
+    func toStringDate() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yyyy hh:mm:a"
+        formatter.amSymbol = "AM"
+        formatter.pmSymbol = "PM"
+        return formatter.string(from: self)
+    }
+    func toStringTime() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "hh:mm:a"
         formatter.amSymbol = "AM"
         formatter.pmSymbol = "PM"
         return formatter.string(from: self)

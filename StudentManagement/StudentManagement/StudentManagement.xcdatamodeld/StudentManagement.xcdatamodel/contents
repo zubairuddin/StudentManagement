@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Exams" representedClassName=".Exams" syncable="YES">
-        <attribute name="examDateTime" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="examDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="examLocation" attributeType="String" syncable="YES"/>
         <attribute name="examName" attributeType="String" syncable="YES"/>
+        <attribute name="examTime" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="isSelectedForDelete" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="students" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Student" inverseName="exams" inverseEntity="Student" syncable="YES"/>
     </entity>
@@ -25,7 +26,7 @@
         </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="Exams" positionX="-63" positionY="-27" width="128" height="120"/>
+        <element name="Exams" positionX="-63" positionY="-27" width="128" height="135"/>
         <element name="Student" positionX="-63" positionY="-18" width="128" height="195"/>
     </elements>
 </model>

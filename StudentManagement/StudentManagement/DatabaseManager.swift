@@ -140,12 +140,13 @@ class DatabaseManager {
         }
     }
     
-    class func saveExam(examName: String, dateTime: Date, location: String) {
+    class func saveExam(examName: String, examDate: Date, examTime: Date, location: String) {
         let entity = NSEntityDescription.entity(forEntityName: "Exams", in: MANAGED_OBJECT_CONTEXT)
         let examManagedObject = Exams(entity: entity!, insertInto: MANAGED_OBJECT_CONTEXT)
         
         examManagedObject.examName = examName
-        examManagedObject.examDateTime = dateTime
+        examManagedObject.examDate = examDate
+        examManagedObject.examTime = examTime
         examManagedObject.examLocation = location
         
         //Save the context
@@ -211,7 +212,7 @@ class DatabaseManager {
         return arrStudents.last
     }
     
-    class func updateExam(withObjectId managedObjectId: NSManagedObjectID, examName: String, dateTime: Date, location: String) {
+    class func updateExam(withObjectId managedObjectId: NSManagedObjectID, examName: String, examDate: Date, examTime: Date, location: String) {
         
         let fetchRequest: NSFetchRequest<Exams> = Exams.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "SELF = %@", managedObjectId)
@@ -229,7 +230,8 @@ class DatabaseManager {
             let exam = arrExams.last
             
             exam?.examName = examName
-            exam?.examDateTime = dateTime
+            exam?.examDate = examDate
+            exam?.examTime = examTime
             exam?.examLocation = location
             
             do {

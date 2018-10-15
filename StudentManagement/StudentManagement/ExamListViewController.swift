@@ -133,11 +133,13 @@ extension ExamListViewController: UITableViewDataSource {
         let exam = arrExams[indexPath.row]
         cell.lblExamName.text = exam.examName
         cell.lblLocation.text = exam.examLocation
-        cell.lblDateAndTime.text = exam.examDateTime.toString()
+        
+        let strExamDateTime = exam.examDate.toStringDate() + " " + exam.examTime.toStringTime()
+        cell.lblDateAndTime.text = strExamDateTime
         cell.btnCheckUncheck.isSelected = exam.isSelectedForDelete
         
         //Diffrentiating between past and future dates
-        if exam.examDateTime.isInPast() {
+        if exam.examDate.isInPast() || exam.examTime.isInPast() {
             cell.lblUpcomingOrPast.text = "Past"
             cell.lblUpcomingOrPast.textColor = .red
         }

@@ -12,11 +12,16 @@ class AddExamViewController: UIViewController {
 
     @IBOutlet weak var viewPickerBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var txtExamName: UITextField!
-    @IBOutlet weak var txtDateTime: UITextField!
+    @IBOutlet weak var txtExamDate: UITextField!
+    @IBOutlet weak var txtExamTime: UITextField!
     @IBOutlet weak var txtLocation: UITextField!
     @IBOutlet weak var viewExamDatePicker: UIView!
     @IBOutlet weak var pickerExamDate: UIDatePicker!
+    @IBOutlet weak var pickerExamTime: UIDatePicker!
     @IBOutlet weak var btnSave: UIButton!
+    @IBOutlet weak var viewExamTimePicker: UIView!
+    @IBOutlet weak var viewExamTimePickerBottomConstraint: NSLayoutConstraint!
+    
     
     var isEditingExam = false
     var selectedExam: Exams!
@@ -32,7 +37,8 @@ class AddExamViewController: UIViewController {
             
             txtExamName.becomeFirstResponder()
             txtExamName.text = selectedExam.examName
-            txtDateTime.text = selectedExam.examDateTime.toString()
+            txtExamDate.text = selectedExam.examDate.toStringDate()
+            txtExamTime.text = selectedExam.examTime.toStringTime()
             txtLocation.text = selectedExam.examLocation
         }
         else {
@@ -64,6 +70,9 @@ class AddExamViewController: UIViewController {
         txtExamName.resignFirstResponder()
         showHideDateSelectionView(true)
     }
+    @IBAction func selectTimeAction(_ sender: Any) {
+        showHideTimeSelectionView(true)
+    }
     @IBAction func saveExamAction(_ sender: UIButton) {
         let validationStage = validateDetails()
         
@@ -71,11 +80,11 @@ class AddExamViewController: UIViewController {
         case .valid:
             if isEditingExam {
                 //Update exam info
-                DatabaseManager.updateExam(withObjectId: selectedExam.objectID, examName: txtExamName.text!, dateTime: pickerExamDate.date, location: txtLocation.text!)
+                DatabaseManager.updateExam(withObjectId: selectedExam.objectID, examName: txtExamName.text!, examDate: pickerExamDate.date, examTime: pickerExamTime.date, location: txtLocation.text!)
             }
             else {
                 //Save exam info
-                DatabaseManager.saveExam(examName: txtExamName.text!, dateTime: pickerExamDate.date, location: txtLocation.text!)
+                DatabaseManager.saveExam(examName: txtExamName.text!, examDate: pickerExamDate.date, examTime: pickerExamTime.date, location: txtLocation.text!)
             }
             
         case .invalid(let errorMessage):
@@ -84,7 +93,7 @@ class AddExamViewController: UIViewController {
 
     }
     @IBAction func dateSelected(_ sender: UIDatePicker) {
-        txtDateTime.text = pickerExamDate.date.toString()
+        txtExamDate.text = pickerExamDate.date.toStringDate()
     }
     @IBAction func cancelDateSelection(_ sender: UIButton) {
         showHideDateSelectionView(false)
@@ -92,6 +101,17 @@ class AddExamViewController: UIViewController {
     @IBAction func doneDateSelection(_ sender: UIButton) {
         showHideDateSelectionView(false)
     }
+    
+    @IBAction func timeSelected(_ sender: UIDatePicker) {
+        txtExamTime.text = pickerExamTime.date.toStringTime()
+    }
+    @IBAction func cancelTimeSelection(_ sender: UIButton) {
+        showHideTimeSelectionView(false)
+    }
+    @IBAction func doneTimeSelection(_ sender: UIButton) {
+        showHideTimeSelectionView(false)
+    }
+
     
     //MARK: Custom Methods
     @objc func dismissKeyboard() {
@@ -101,7 +121,7 @@ class AddExamViewController: UIViewController {
         if (txtExamName.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)! {
             return .invalid("Please enter exam name.")
         }
-        else if (txtDateTime.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)! {
+        else if (txtExamDate.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)! {
             return .invalid("Please select exam date.")
         }
         else if (txtLocation.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)! {
@@ -126,6 +146,26 @@ class AddExamViewController: UIViewController {
             } else {
                 // Fallback on earlier versions
                 viewPickerBottomConstraint.constant = -viewExamDatePicker.frame.height
+            }
+        }
+        
+        UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    func showHideTimeSelectionView(_ isShow: Bool) {
+        if isShow {
+            viewExamTimePickerBottomConstraint.constant = 0
+            
+            //Select first row by default
+            
+        }
+        else {
+            if #available(iOS 11.0, *) {
+                viewExamTimePickerBottomConstraint.constant = -(viewExamTimePicker.frame.height + view.safeAreaInsets.bottom)
+            } else {
+                // Fallback on earlier versions
+                viewExamTimePickerBottomConstraint.constant = -viewExamTimePicker.frame.height
             }
         }
         

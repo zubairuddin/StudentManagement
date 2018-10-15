@@ -201,13 +201,15 @@ extension StudentExamsViewController: UITableViewDataSource {
         
         let exam = arrExams[indexPath.row]
         cell.lblExamName.text = exam.examName
-        cell.lblExameDateTime.text = exam.examDateTime.toString()
+        
+        let strExamDateTime = exam.examDate.toStringDate() + " " + exam.examTime.toStringTime()
+        cell.lblExameDateTime.text = strExamDateTime
         cell.lblExamLocation.text = exam.examLocation
         
         cell.btnCheckUncheck.addTarget(self, action: #selector(checkboxClicked(sender:)), for: .touchUpInside)
         
         //Diffrentiating between past and future dates
-        if exam.examDateTime.isInPast() {
+        if exam.examDate.isInPast() || exam.examTime.isInPast()  {
             cell.lblUpcomingOrPast.text = "Past"
             cell.lblUpcomingOrPast.textColor = .red
         }
@@ -217,7 +219,6 @@ extension StudentExamsViewController: UITableViewDataSource {
             
         }
 
-        
         return cell
     }
 }
