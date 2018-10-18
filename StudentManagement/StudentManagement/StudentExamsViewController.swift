@@ -22,11 +22,14 @@ class StudentExamsViewController: UIViewController {
     @IBOutlet weak var viewPickerBottomConstraint: NSLayoutConstraint!
 
     //MARK: View Lifecycle methods
+    
+    //Called when the view has been loaded
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
+        //Get all the students from the database
         arrAllStudents = DatabaseManager.getAllStudents()
         
         tblExams.isHidden = true
@@ -46,43 +49,50 @@ class StudentExamsViewController: UIViewController {
         btnSelectStudent.layer.masksToBounds = true
     }
     
+    //This function is called when the view is about to appear
     override func viewWillAppear(_ animated: Bool) {
         refreshTable()
     }
+    
+    //This function is called when the view has disappeared
     override func viewDidDisappear(_ animated: Bool) {
         setIsSelectedForDeleteFalse()
     }
     
     //MARK: Actions
     
+    //This function is called when student button is tapped
     @IBAction func selectStudentTapped(_ sender: UIButton) {
-        
         if arrAllStudents.count > 0 {
             showHideStudentSelectionView(true)
         }
         else {
             presentAlert(withTitle: "No Students Found.", message: "Please add some students first.")
         }
-        
     }
+    
+    //This function is called when user taps on cancel button on student selection picker
     @IBAction func cancelStudentSelection(_ sender: UIButton) {
         showHideStudentSelectionView(false)
     }
+    
+    //This function is called when user taps on done button on student picker
     @IBAction func doneStudentSelection(_ sender: UIButton) {
         showHideStudentSelectionView(false)
         
         //Get the student detail along with exams relationship
-        
         refreshTable()
     }
     
     //MARK: Custom Methods
     
+    //This function will refresh the table
     func refreshTable() {
         guard let student = selectedStudent else {
             return
         }
         
+        //Get the selected student's detail from DB
         guard let studentDetail = DatabaseManager.getStudentDetail(withObjectId: student.objectID) else {
             return
         }
@@ -91,6 +101,7 @@ class StudentExamsViewController: UIViewController {
         
         btnSelectStudent.setTitle(name, for: .normal)
         
+        //Get all the exams for the selected students
         arrExams = studentDetail.exams?.allObjects as! [Exams]
         
         if arrExams.count > 0 {
@@ -104,8 +115,9 @@ class StudentExamsViewController: UIViewController {
             lblNoExam.text = "No Exams Found!"
             
         }
-
     }
+    
+    //This method will show/hide student selection view
     func showHideStudentSelectionView(_ isShow: Bool) {
         if isShow {
             viewPickerBottomConstraint.constant = 0
@@ -127,6 +139,7 @@ class StudentExamsViewController: UIViewController {
             self.view.layoutIfNeeded()
         }
     }
+    
     func setIsSelectedForDeleteFalse() {
         let arrExams = DatabaseManager.getAllExams()
         
@@ -142,11 +155,13 @@ class StudentExamsViewController: UIViewController {
         }
     }
     
+    //This function takes the user to assign exam screen
     @objc func assignExam() {
         let vc = storyboard?.instantiateViewController(withIdentifier: "AssignExamToStudentViewController") as! AssignExamToStudentViewController
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    //This function is called when the user selects/deselects the checkbox near exam
     @objc func checkboxClicked(sender: UIButton) {
         sender.isSelected = !sender.isSelected
         
@@ -158,29 +173,33 @@ class StudentExamsViewController: UIViewController {
         else {
             exam.isSelectedForDelete = false
         }
-        
     }
+    
+    //This method is called when the user taps on delete button
     @objc func deleteExamsTapped() {
         deleteSelectedExamsForStudentFromCoreData()
     }
     
+    //This method deletes the selected student from DB
     @objc func deleteSelectedExamsForStudentFromCoreData() {
         
+        //Get all the selected exams
         let filteredSelectedExams = arrExams.filter { (exam) -> Bool in
             return exam.isSelectedForDelete == true
         }
         
+        //Get the student for which exams are being shown
         guard let student = selectedStudent else {
             return
         }
         
+        //Delete the student exams
         for exam in filteredSelectedExams {
             student.removeFromExams(exam)
         }
         
         do {
             try KAPPDELEGATE.persistentContainer.viewContext.save()
-            
             refreshTable()
         }
         catch let error {
@@ -209,14 +228,13 @@ extension StudentExamsViewController: UITableViewDataSource {
         cell.btnCheckUncheck.addTarget(self, action: #selector(checkboxClicked(sender:)), for: .touchUpInside)
         
         //Diffrentiating between past and future dates
-        if exam.examDate.isInPast() || exam.examTime.isInPast()  {
+        if exam.examDate.isInPast() {
             cell.lblUpcomingOrPast.text = "Past"
             cell.lblUpcomingOrPast.textColor = .red
         }
         else {
             cell.lblUpcomingOrPast.text = "Upcoming"
             cell.lblUpcomingOrPast.textColor = .green
-            
         }
 
         return cell

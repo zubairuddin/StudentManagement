@@ -10,6 +10,7 @@ import UIKit
 
 class AssignExamToStudentViewController: UIViewController {
     
+    //Outlets
     @IBOutlet weak var btnSelectExam: UIButton!
     @IBOutlet weak var btnSelectStudent: UIButton!
     @IBOutlet weak var btnAdd: UIButton!
@@ -29,6 +30,8 @@ class AssignExamToStudentViewController: UIViewController {
     var arrAllExams = [Exams]()
     
     //MARK: View Lifecycle methods
+    
+    //This function is called when the view first loads
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,15 +48,17 @@ class AssignExamToStudentViewController: UIViewController {
         cornerViewRadius(sourceView: btnSelectStudent)
         cornerViewRadius(sourceView: btnAdd)
         
-        //
         selectedPicker = .exam
     }
     
     //MARK: Actions
+    
+    //This method is called when user cancels the selection
     @IBAction func cancelSelection(_ sender: UIButton) {
         showHidePickerView(false)
     }
     
+    //This method is called when the user confirms the selection
     @IBAction func doneSelection(_ sender: UIButton) {
         showHidePickerView(false)
         
@@ -73,16 +78,19 @@ class AssignExamToStudentViewController: UIViewController {
             btnSelectExam.setTitle(exam.examName, for: .normal)
         }
     }
+    
+    //This method is called when the user taps on the exams button
     @IBAction func selectExamTapped(_ sender: UIButton) {
         if arrAllExams.count > 0 {
             selectedPicker = .exam
             showHidePickerView(true)
-
         }
         else {
             presentAlert(withTitle: "No Exams Found.", message: "Please add some exams first.")
         }
     }
+    
+    //The select student button was tapped
     @IBAction func selectStudentTapped(_ sender: UIButton) {
         if arrAllStudents.count > 0 {
             selectedPicker = .student
@@ -92,14 +100,17 @@ class AssignExamToStudentViewController: UIViewController {
         else {
             presentAlert(withTitle: "No Students Found.", message: "Please add some students first.")
         }
-
     }
+    
+    //The add button was tapped
     @IBAction func addTapped(_ sender: UIButton) {
-        //
+        
+        //Get the selected student and selected exam
         guard let selectedStudent = selectedStudent, let selectedExam = selectedExam else {
             return
         }
         
+        //Add the selected exam to student object
         selectedStudent.addToExams(selectedExam)
         
         do {

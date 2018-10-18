@@ -35,9 +35,13 @@ class AddImagesViewController: UIViewController {
     }
     
     //MARK: Actions
+    
+    //Called when user cancels image selection
     @IBAction func cancelTapped(_ sender: UIButton) {
         showHidePickerView(false)
     }
+    
+    //Called when user confirms image selection
     @IBAction func doneTapped(_ sender: UIButton) {
         showHidePickerView(false)
         
@@ -49,6 +53,7 @@ class AddImagesViewController: UIViewController {
         btnSelectStudent.setTitle(name, for: .normal)
     }
     
+    //Opens the action sheet to give user options for picking image from galllery or taking a new one from camera
     @IBAction func selectImage(_ sender: UIButton) {
         let alert = UIAlertController(title: "Select Image", message: nil, preferredStyle: .actionSheet)
         let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
@@ -67,20 +72,28 @@ class AddImagesViewController: UIViewController {
         present(alert, animated: true, completion: nil)
 
     }
+    
+    //Called when select student button is tapped
     @IBAction func selectStudentButtonTapped(_ sender: UIButton) {
         showHidePickerView(true)
     }
+    
+    //Add image button is tapped
     @IBAction func addImage(_ sender: UIButton) {
+        
+        //Convert image to binary data in order to save it in DB
         guard let data = imageData else {
             presentAlert(withTitle: "Please select an image.", message: "")
             return
         }
         
+        //Get the selected student to which image is to be assigned
         guard let student = selectedStudent else {
             presentAlert(withTitle: "Please select a student.", message: "")
             return
         }
         
+        //Assign the image to the student
         student.image = data
         
         do {
@@ -126,10 +139,13 @@ class AddImagesViewController: UIViewController {
         }
     }
     
+    //Adds a nice corner radius to buttons
     func cornerViewRadius(sourceView: UIView) {
         sourceView.layer.cornerRadius = sourceView.frame.height / 2
         sourceView.layer.masksToBounds = true
     }
+    
+    //This function will open devece's camera
     private func openCamera() {
         //Instantiate UIImagePickerController
         let picker = UIImagePickerController()
@@ -149,6 +165,7 @@ class AddImagesViewController: UIViewController {
         }
     }
     
+    //This function will open photo library
     private func openPhotoLibrary() {
         //Instantiate UIImagePickerController
         let picker = UIImagePickerController()

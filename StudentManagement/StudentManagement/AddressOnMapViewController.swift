@@ -24,12 +24,16 @@ class AddressOnMapViewController: UIViewController {
         showAddressOnMap()
     }
     
+    //This function will show the student's address on map
     func showAddressOnMap() {
         
+        //Get the student address
         guard let location = strAddress else {
             presentAlert(withTitle: "No address.", message: "")
             return
         }
+        
+        //Geocode the student address i.e. get the latitude and longitude from an address and then place pin on the map with those latitude and longitude
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(location) { [weak self] placemarks, error in
             

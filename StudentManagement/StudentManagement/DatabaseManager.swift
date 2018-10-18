@@ -13,6 +13,7 @@ class DatabaseManager {
     
     //Save the new student in Core Data
     class func saveStudent(studentId: String, firstName: String, lastName: String, gender: String, age: Int64, courseStudy: String, city: String, street: String, imageData: Data) {
+        
         let entity = NSEntityDescription.entity(forEntityName: "Student", in: MANAGED_OBJECT_CONTEXT)
         let studentObject = Student(entity: entity!, insertInto: MANAGED_OBJECT_CONTEXT)
         

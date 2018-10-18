@@ -11,12 +11,15 @@ import Foundation
 
 class ExamListViewController: UIViewController {
 
+    //Outlets
     @IBOutlet weak var tblExams: UITableView!
     @IBOutlet weak var lblNoExam: UILabel!
     
+    //This array will hold all the exams
     var arrExams = [Exams]()
     
     //MARK: View Lifecycle methods
+    //This method is called when the view first loads
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,12 +36,18 @@ class ExamListViewController: UIViewController {
         navigationItem.rightBarButtonItems = [addButton,deleteButton,awardsButton]
         
     }
+    
+    //This method is called when the view is about to appear
     override func viewWillAppear(_ animated: Bool) {
         refreshTable()
     }
 
     //MARK: Custom Methods
+    
+    //Used to refresh the exam list view
     func refreshTable() {
+        
+        //Get all the exams from the DB
         arrExams = DatabaseManager.getAllExams()
         
         if arrExams.count > 0 {
@@ -54,18 +63,20 @@ class ExamListViewController: UIViewController {
         tblExams.reloadData()
     }
     
+    //This function will take to the add new exam screen
     @objc func addNewExam() {
         let vc = storyboard?.instantiateViewController(withIdentifier: "AddExamViewController") as! AddExamViewController
         navigationController?.pushViewController(vc, animated: true)
-        
     }
+    
+    //Show exams for the student
     @objc func showStudentExamsView() {
         let vc = storyboard?.instantiateViewController(withIdentifier: "StudentExamsViewController") as! StudentExamsViewController
         navigationController?.pushViewController(vc, animated: true)
         
     }
 
-    
+    //Alert the user before deleting exam(s)
     @objc func deleteExams() {
         
         let arrSelectedExams = DatabaseManager.getSelectedExams()
@@ -85,6 +96,8 @@ class ExamListViewController: UIViewController {
             presentAlert(withTitle: "No Exams Selected.", message: "Please select exams that you want to delete.")
         }
     }
+    
+    //Delete the selected exam(s) from core data
     func deleteSelectedExamsFromCoreData(exams: [Exams]) {
         
         for exam in exams {
@@ -99,6 +112,8 @@ class ExamListViewController: UIViewController {
             }
         }
     }
+    
+    //Called when the checkbox for an exam is selected/deselected
     @objc func examCheckBoxTapped(sender: UIButton) {
         print(sender.tag)
         sender.isSelected = !sender.isSelected
@@ -112,8 +127,6 @@ class ExamListViewController: UIViewController {
         else {
             selectedExam.isSelectedForDelete = false
         }
-        
-        //print("Exam array count is \(arrSelectedExamsToDelete.count)")
     }
 }
 
@@ -139,7 +152,7 @@ extension ExamListViewController: UITableViewDataSource {
         cell.btnCheckUncheck.isSelected = exam.isSelectedForDelete
         
         //Diffrentiating between past and future dates
-        if exam.examDate.isInPast() || exam.examTime.isInPast() {
+        if exam.examDate.isInPast() {
             cell.lblUpcomingOrPast.text = "Past"
             cell.lblUpcomingOrPast.textColor = .red
         }

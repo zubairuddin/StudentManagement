@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var viewExams: UIView!
     @IBOutlet weak var viewImages: UIView!
     
+    //This function is called when the view first gets loaded
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,15 +27,21 @@ class HomeViewController: UIViewController {
         cornerViewRadius(sourceView: viewImages)
     }
     
+    
+    //Students button selected
     @IBAction func studentsTapped(_ sender: UIButton) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "StudentListViewController") as! StudentListViewController
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    //Exams button selected
     @IBAction func examsTapped(_ sender: UIButton) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "ExamListViewController") as! ExamListViewController
         navigationController?.pushViewController(vc, animated: true)
 
     }
+    
+    //Images button selected
     @IBAction func imagesTapped(_ sender: UIButton) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "AddImagesViewController") as! AddImagesViewController
         navigationController?.pushViewController(vc, animated: true)
