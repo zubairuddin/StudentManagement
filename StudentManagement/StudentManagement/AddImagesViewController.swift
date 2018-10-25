@@ -2,7 +2,7 @@
 //  AddImagesViewController.swift
 //  StudentManagement
 //
-//  Created by Zubair on 13/10/18.
+//  Created by joseph on 13/10/18.
 //  Copyright © 2018 joseph. All rights reserved.
 //
 
@@ -206,26 +206,21 @@ extension AddImagesViewController: UIImagePickerControllerDelegate, UINavigation
         dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        print(info)
-        
-        var selectedImage: UIImage?
-        
-        if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            selectedImage = originalImage
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [String : Any]) {
+        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+            return
         }
         
-        if let image = selectedImage {
-            imgUserImage.image = image
-            
-            guard let image = imgUserImage.image, let imgData = image.jpegData(compressionQuality: 0.1) else {
-                return
-            }
-            
-            imageData = imgData
+        imgUserImage.image = image
+        
+        guard let imgData = UIImageJPEGRepresentation(image, 0.1) else {
+            return
         }
+        
+        imageData = imgData
         
         dismiss(animated: true, completion: nil)
-        
     }
+
 }

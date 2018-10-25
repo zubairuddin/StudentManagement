@@ -2,7 +2,7 @@
 //  ExamListViewController.swift
 //  StudentManagement
 //
-//  Created by Zubair.Nagori on 11/10/18.
+//  Created by joseph on 11/10/18.
 //  Copyright © 2018 joseph. All rights reserved.
 //
 

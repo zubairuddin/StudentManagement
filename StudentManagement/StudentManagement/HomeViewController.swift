@@ -2,7 +2,7 @@
 //  HomeViewController.swift
 //  StudentManagement
 //
-//  Created by Zubair on 12/10/18.
+//  Created by joseph on 12/10/18.
 //  Copyright © 2018 joseph. All rights reserved.
 //
 

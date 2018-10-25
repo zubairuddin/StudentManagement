@@ -2,7 +2,7 @@
 //  Exams+CoreDataProperties.swift
 //  StudentManagement
 //
-//  Created by Zubair on 15/10/18.
+//  Created by joseph on 15/10/18.
 //  Copyright © 2018 joseph. All rights reserved.
 //
 //

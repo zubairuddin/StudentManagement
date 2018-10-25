@@ -2,7 +2,7 @@
 //  AddStudentViewController.swift
 //  StudentManagement
 //
-//  Created by Zubair.Nagori on 11/10/18.
+//  Created by joseph on 11/10/18.
 //  Copyright © 2018 joseph. All rights reserved.
 //
 
@@ -111,7 +111,7 @@ class AddStudentViewController: UIViewController {
             
             //Convert image to binary data so that it can be saved in core data
             var userImageData: Data!
-            if let profileImage = self.imgUserImage.image, let imageData = profileImage.jpegData(compressionQuality: 0.1)  {
+            if let profileImage = self.imgUserImage.image, let imageData = UIImageJPEGRepresentation(profileImage, 0.1)  {
                 userImageData = imageData
             }
             
@@ -297,22 +297,34 @@ extension AddStudentViewController: UIImagePickerControllerDelegate, UINavigatio
     }
     
     //This function is called when the user has selected the image for student
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        print(info)
-        
-        var selectedImage: UIImage?
-        
-        //Get the selected image
-        if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            selectedImage = originalImage
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [String : Any]) {
+        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+            return
         }
         
-        //Set the image
-        if let image = selectedImage {
-            imgUserImage.image = image
-        }
+        imgUserImage.image = image
         
         dismiss(animated: true, completion: nil)
-        
     }
+
+    //This is only available in iOS 12
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+//        print(info)
+//
+//        var selectedImage: UIImage?
+//
+//        //Get the selected image
+//        if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+//            selectedImage = originalImage
+//        }
+//
+//        //Set the image
+//        if let image = selectedImage {
+//            imgUserImage.image = image
+//        }
+//
+//        dismiss(animated: true, completion: nil)
+//
+//    }
 }
